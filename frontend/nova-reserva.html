@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Nebula - Nova Reserva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#f2f8f4',
+                            DEFAULT: '#1b5e20',
+                            dark: '#0f3813',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen font-sans antialiased flex flex-col">
+
+    <nav class="bg-white border-b border-slate-200/80 px-6 py-4 flex justify-between items-center w-full">
+        <div class="flex items-center space-x-3">
+            <div class="p-2 bg-brand-light rounded-lg">
+                <svg class="w-6 h-6 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+            </div>
+            <div>
+                <h1 class="text-lg font-bold tracking-tight text-slate-900 leading-none">Hotel Nebula</h1>
+                <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Sistema de Gestão</span>
+            </div>
+        </div>
+        <div class="flex items-center space-x-2">
+            <a href="index.html" class="text-slate-600 hover:text-slate-900 hover:bg-slate-100/80 px-4 py-2 rounded-lg transition text-xs font-medium">Dashboard</a>
+            <a href="nova-reserva.html" class="bg-brand text-white px-4 py-2 rounded-lg font-medium text-xs transition shadow-sm shadow-brand/10">Nova Reserva</a>
+        </div>
+    </nav>
+
+    <main class="flex-1 flex items-center justify-center p-6 w-full">
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200/60 w-full max-w-md">
+            <div class="mb-6">
+                <h2 class="text-xl font-bold text-slate-900">Criar Nova Reserva</h2>
+                <p class="text-xs text-slate-400 mt-0.5">Insira os dados do hóspede e do quarto abaixo</p>
+            </div>
+            
+            <form id="formReserva" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">ID do Hóspede</label>
+                    <input type="number" id="id_hospede" required class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">ID do Quarto</label>
+                    <input type="number" id="id_quarto" required class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Data de Check-in</label>
+                        <input type="date" id="data_checkin" required class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1.5">Data de Check-out</label>
+                        <input type="date" id="data_checkout" required class="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-900 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition">
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-brand hover:bg-brand-dark text-white font-medium text-sm py-2.5 rounded-lg transition duration-200 mt-4 shadow-sm shadow-brand/10">
+                    Confirmar Reserva
+                </button>
+            </form>
+
+            <div id="mensagemStatus" class="mt-4 transition-all duration-200"></div>
+        </div>
+    </main>
+
+    <footer class="text-center text-[11px] text-slate-400 py-6 border-t border-slate-200/60 w-full bg-white">
+        &copy; 2026 Hotel Nebula. Desenvolvido para a cadeira de Software Engineering & Databases.
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
